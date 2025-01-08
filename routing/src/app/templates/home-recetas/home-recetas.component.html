@@ -1,0 +1,9 @@
+<h1>Bienvenido a nuestras maravillosas recetas de tartas</h1>
+
+<ul>
+  <li *ngFor="let receta of recetas">
+    <a [routerLink]="['/home-recetas', receta.id]" [queryParams]="{ nombre: receta.nombre, descripcion: receta.descripcion }">{{ receta.nombre }}</a>
+  </li>
+
+  <!-- localhost://4200/receta/:id -->
+</ul>
