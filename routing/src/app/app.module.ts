@@ -8,6 +8,10 @@ import { ContactoComponent } from './templates/contacto/contacto.component';
 import { AboutComponent } from './templates/about/about.component';
 import { HomeRecetasComponent } from './templates/home-recetas/home-recetas.component';
 import { RecetaComponent } from './templates/receta/receta.component';
+import { ServiciosComponent } from './templates/servicios/servicios.component';
+import { TareasComponent } from './templates/tareas/tareas.component';
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
 
 /* const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
@@ -26,12 +30,16 @@ import { RecetaComponent } from './templates/receta/receta.component';
     ContactoComponent,
     AboutComponent,
     HomeRecetasComponent,
-    RecetaComponent
+    RecetaComponent,
+    ServiciosComponent,
+    TareasComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     //RouterModule.forRoot(routes)
+    FormsModule
   ],
   providers: [],
    //exports: [RouterModule],

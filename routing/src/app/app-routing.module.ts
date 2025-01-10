@@ -5,6 +5,8 @@ import { ContactoComponent } from './templates/contacto/contacto.component';
 import { AboutComponent } from './templates/about/about.component';
 import { RecetaComponent } from './templates/receta/receta.component';
 import { HomeRecetasComponent } from './templates/home-recetas/home-recetas.component';
+import { TareasComponent } from './templates/tareas/tareas.component';
+import { ServiciosComponent } from './templates/servicios/servicios.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
@@ -13,11 +15,13 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
   { path: 'contacto', component: ContactoComponent },
   { path: 'acerca', component: AboutComponent },
+  { path: 'tareas', component: TareasComponent },
+  { path: 'servicios', component: ServiciosComponent },
   //{ path: '', redirectTo: '/inicio', pathMatch: 'full' }, // Redirige a inicio por defecto "www.miapp.com"
   //{ path: '**', redirectTo: '/inicio', pathMatch: 'full' }, // Redirige a inicio por defecto "www.miapp.com" en todas las URL que no existan
   { path: 'about', redirectTo: '/acerca', pathMatch: 'full' }, // Redirige a acerca por defecto "www.miapp.com/about" 
-  { path: 'home-recetas', component: HomeRecetasComponent }, // Página principal de recetas
-  { path: 'home-recetas/:id', component: RecetaComponent },  // Detalles de una receta específica
+  { path: 'home-recetas', component: HomeRecetasComponent }, // RUTA ESTÁTICA: Página principal de recetas
+  { path: 'home-recetas/:id', component: RecetaComponent },  // RUTA DINÁMICA: Detalles de una receta específica
 
 ];
 

@@ -10,7 +10,7 @@ export class RecetaComponent implements OnInit {
   recetaId: number = 0
   recetaNombre: string | null = null;
   recetaDescripcion: string | null = null;
-
+  
   //Inicializa propiedades, métodos, servicios... antes de que se cargue el componente
   constructor(private route: ActivatedRoute) {}
 
@@ -20,7 +20,7 @@ export class RecetaComponent implements OnInit {
     this.recetaId = Number(this.route.snapshot.paramMap.get('id'))
     //2. VER LOS DETALLES DE LA RECETA EN CUESTIÓN
     this.recetaNombre = this.route.snapshot.queryParamMap.get('nombre');
-   this. recetaDescripcion = this.route.snapshot.queryParamMap.get('descripcion');
+    this.recetaDescripcion = this.route.snapshot.queryParamMap.get('descripcion');
   }
   }
 
