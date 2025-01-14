@@ -35,4 +35,12 @@ export class RecetasService {
     return this.recetas.find(receta => receta.id === id)
     //Nos sirve para BUSCAR y devolver el primer objeto de la lista de recetas que tenga el ID que le pasamos por parámetro. Siempre devuelve el primer elemento de un array, y siempre que cumpla una condición específica. Si no encuentra nada, devuelve undefined.
   }
+
+  getRecetasByNombre(nombre: string) {
+    // Buscar recetas que contengan el texto ingresado (case-insensitive)
+    return this.recetas.filter((receta) =>
+      receta.nombre.toLowerCase().includes(nombre.toLowerCase())
+    //En caso de que receta.nombre en minúsculas, contenga el nombre en minúsculas que le pasamos por parámetro, nos devolverá un array con los elementos que cumplan esa condición.
+    );
+  }
 }

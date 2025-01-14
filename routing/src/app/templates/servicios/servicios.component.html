@@ -1,3 +1,5 @@
+ <!-- EJERCICIO 1: Mostrar recetas -->
+
 <!-- <h1>Recetas Disponibles</h1>
 <ul>
   <li *ngFor="let receta of recetas">
@@ -5,11 +7,12 @@
   </li>
 </ul>-->
 
+ <!-- EJERCICIO 2: Buscar recetas por ID -->
 
 <div class="receta-buscador">
   <h1>Buscar Receta por ID</h1>
 
-  <!-- 1. El usuario añade un número para buscar la receta -->
+  <!--  1. El usuario añade un número para buscar la receta -->
   <div class="formulario-busqueda">
     <label for="receta-id">Ingresa el ID de la receta:</label>
     <input
@@ -34,3 +37,34 @@
     <p><strong>Nombre:</strong> {{ receta.nombre }}</p>
   </div>
 </div>
+
+
+ <!-- EJERCICIO 3: Buscar recetas por nombre -->
+
+ <!-- 1-2: el usuario introduce un nombre en el input que a través del two way binding se asigna a la propiedad nombreReceta -->
+  <div class="formulario-busqueda">
+    <label for="receta-nombre">Ingresa el nombre o parte del nombre de la receta:</label>
+    <input
+      id="receta-nombre"
+      type="text"
+      [(ngModel)]="nombreReceta"
+      placeholder="Ejemplo: Tarta"
+    />
+        <!-- 3-2. El usuario hace click sobre el botón -->
+    <button (click)="buscarRecetasNombre()">Buscar</button>
+  </div>
+
+
+  <div *ngIf="mensajeError" class="error">
+    <p>{{ mensajeError }}</p>
+  </div>
+  <!-- 5-2. Se muestran los detalles de las recetas si se encuentran -->
+  <div *ngIf="recetasEncontradas.length > 0" class="lista-recetas">
+    <h2>Recetas Encontradas</h2>
+    <ul>
+      <li *ngFor="let receta of recetasEncontradas">
+        <strong>ID:</strong> {{ receta.id }} - <strong>Nombre:</strong> {{ receta.nombre }}
+      </li>
+    </ul>
+  </div>
+

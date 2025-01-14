@@ -29,7 +29,9 @@ recetas: any[] = [];
 recetaId: number | null = null; // ID ingresado por el usuario
 receta: { id: number; nombre: string } | undefined; // Receta encontrada
 mensajeError: string | null = null; // Mensaje de error si no se encuentra una receta
-
+//2-2. A través de two way binding se almacema un valor string en nombreeReceta
+nombreReceta: string = ''; // Texto ingresado por el usuario
+recetasEncontradas: { id: number; nombre: string }[] = []; // Lista de recetas encontradas
 
 /*   El constructor es una función especial en la clase de TypeScript que se ejecuta al crear una instancia de la clase (en este caso, del componente).
 Características:
@@ -70,5 +72,25 @@ buscarReceta() {
     }
   }
 }
+
+buscarRecetasNombre() {
+  // 4-2. Ya existe un valor para nombrereceta. Al desencadenar el método se busca la receta por ID utilizando el servicio
+  if (this.nombreReceta.trim()) {
+    //trim(): No modifica la cadena original, devuelve una nueva cadena sin espacios iniciales ni finales.
+
+    this.recetasEncontradas = this.recetasService.getRecetasByNombre(this.nombreReceta);
+  //--> Este método devuelve un array con TODAS las recetas que contienen el texto ingresado por el usuario.
+    // Si no se encuentran recetas, mostrar un mensaje de error
+    if (this.recetasEncontradas.length === 0) {
+      this.mensajeError = `No se encontraron recetas que coincidan con "${this.nombreReceta}".`;
+    } else {
+      this.mensajeError = null; // Limpiar el error si se encuentran recetas
+    }
+  } else {
+    this.mensajeError = 'Por favor, ingresa un nombre válido.';
+    this.recetasEncontradas = [];
+  }
+}
+
 
 }
