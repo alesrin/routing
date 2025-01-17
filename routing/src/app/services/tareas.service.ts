@@ -33,7 +33,7 @@ export class TareasService {
 
   updateTarea(
     id: number,
-    nuevaTarea: { nombre?: string; completada?: boolean, descripcion: "por añadir", mi_favorita: false }
+    nuevaTarea: { nombre?: string; completada?: boolean}
   ) {
     const index = this.tareas.findIndex((tarea) => tarea.id === id);
 

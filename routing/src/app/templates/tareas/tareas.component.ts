@@ -10,6 +10,7 @@ import { TareasService } from 'src/app/services/tareas.service';
 export class TareasComponent implements OnInit{
   tareas: { id: number; nombre: string; completada: boolean }[] = [];
   nuevaTarea: string = '';
+  errorMensaje: string = '';
 
   constructor(private tareasService: TareasService) {}
 
@@ -17,6 +18,10 @@ export class TareasComponent implements OnInit{
     // Cargar la lista inicial de tareas
     this.tareas = this.tareasService.getTareas();
   }
+  //ORDEN DE EJECUCIÓN:
+    //1. Se ejecuta el código del constructor en el que caso en el que tengamos constructor
+    //2. Angular inicializa el componente con todas sus propiedades, métodos, template.....
+    //3. Se inicializa todo lo que tengamos en el ngOnInit()
 
   agregarTarea() {
     if (this.nuevaTarea.trim()) {
@@ -28,6 +33,9 @@ export class TareasComponent implements OnInit{
       this.tareasService.tareas.push(nueva); // Añadimos la tarea al servicio
       this.tareas = this.tareasService.getTareas(); // Actualizamos la lista en la vista
       this.nuevaTarea = ''; // Limpiamos el campo de entrada
+    }
+    else{
+      this.errorMensaje = "Por favor añada una nueva tarea";
     }
   }
 
@@ -42,5 +50,5 @@ export class TareasComponent implements OnInit{
     this.tareas = this.tareasService.getTareas(); // Actualizamos la lista en la vista
   }
 }
-  
+
 
